@@ -1,0 +1,39 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.minicart-wrapper {
+		float: @right;
+		.action.showcart {
+			color: #696763;
+			float: @left;
+			.text {
+				&:extend(.abs-visually-hidden-reset);
+				line-height: 20px;
+				float: left;
+			}
+			&:before {
+				font-family: 'FontAwesome' !important;
+				content: '\f07a' !important;
+				.lib-font-size(14) !important;
+				line-height: 20px !important;
+				float: @left;
+				@{padding-right}:5px; 
+			}
+			&:hover {
+				color: @hover-color;
+				&:before { 
+					color: @hover-color;
+				}
+			}
+		}
+	} 
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.minicart-wrapper {
+    margin:0;
+		@{margin-left}: 30px;
+	}
+}

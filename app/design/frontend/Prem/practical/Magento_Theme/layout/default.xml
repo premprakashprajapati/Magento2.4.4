@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        
+        <block class="Magento\Cms\Block\Block" name="Promo-text">
+            <arguments>
+                <argument name="block_id" xsi:type="string">header-top-block</argument>
+            </arguments>
+        </block>
+        <move element="Promo-text" destination="header.container" before="-"/>
+
+        
+        <move element="currency" destination="header-wrapper" after="logo"/>
+        <move element="store_language" destination="header-wrapper" after="logo"/>
+
+        <referenceContainer name="header-wrapper">
+            <container name="hw-right" htmlTag="div" htmlClass="hw-right" after="-"></container>
+        </referenceContainer>
+        <move element="header.panel.wrapper" destination="hw-right" after="-"/>
+
+        <referenceBlock name="header.links">
+        <block class="Magento\Customer\Block\Account\Link" name="my-account-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Account</argument>
+                <argument name="sortOrder" xsi:type="number">110</argument>
+                <argument name="class" xsi:type="string">my-account-link</argument>
+            </arguments>
+        </block>
+        <block class="Magento\Framework\View\Element\Html\Link" name="wishlist-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Wishlist</argument>
+                <argument name="path" xsi:type="string" translate="false">wishlist</argument>
+                <argument name="class" xsi:type="string">top-header-wishlist</argument>
+            </arguments>
+        </block>
+        <block class="Magento\Framework\View\Element\Html\Link" name="checkout-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Checkout</argument>
+                <argument name="path" xsi:type="string">checkout</argument>
+                <argument name="class" xsi:type="string">top-header-checkout</argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+    <referenceBlock name="register-link" remove="true" />
+    <move element="header.panel.wrapper" destination="hw-right" after="-"/>
+    <move element="minicart" destination="hw-right" before="-" />
+    <referenceBlock name="store.settings" remove="true" />  
+
+    </body>
+</page>
+

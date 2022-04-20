@@ -1,0 +1,59 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.block-search {
+      position: absolute;
+      bottom: -64px;
+      @{right}: 0;
+      width: 155px;
+    	padding: 0;
+
+        input {
+        	color: #B2B2B2;
+        	background: #F0F0E9;
+        	font-size: 12px;
+       	    height: 35px;
+  	        @{padding-left}: 10px;
+   	        width: 155px;
+   	        float: @right;
+   	        border:0;
+
+   	        &::-webkit-input-placeholder {
+			  color: #B2B2B2;
+			  opacity: 1;
+			}
+			&::-moz-placeholder {
+			  color: #B2B2B2;
+			  opacity: 1;
+			}
+			&:-ms-input-placeholder {
+			  color: #B2B2B2;
+			  opacity: 1;
+			}
+			&:-moz-placeholder {
+			  color: #B2B2B2;
+			  opacity: 1;
+			}
+        }
+        .action.search {
+          @{right}:10px;
+          @{left}:inherit;
+          &:before {
+              color: #b3b3b3;
+              font-size: 12px;
+          }
+        }
+    } 
+}
+
+@media(max-width:@layout__max-width) {
+    .block-search {
+        @{right}:15px;
+    }
+}
